@@ -58,9 +58,14 @@ public class CalculadoraDeIdade extends javax.swing.JFrame {
         jlaIdade.setText("0");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Ano Atual");
+        jLabel3.setText("Ano Atual:");
 
         jlaAno.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jlaAno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlaAnoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,13 +118,20 @@ public class CalculadoraDeIdade extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     private void jbuCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuCalcActionPerformed
        int an = Integer.parseInt(txtAN.getValue().toString());
-       int id = 2020 - an;
+       int id = Calendar.getInstance().get(Calendar.YEAR) - an;
        jlaIdade.setText(Integer.toString(id));
-       
+       int anoAtual = Calendar.getInstance().get(Calendar.YEAR);
+        jlaAno.setText(String.valueOf(anoAtual));
+   
+  
      
                
 
     }//GEN-LAST:event_jbuCalcActionPerformed
+
+    private void jlaAnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlaAnoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jlaAnoMouseClicked
 
     /**
      * @param args the command line arguments
